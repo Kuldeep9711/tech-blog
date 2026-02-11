@@ -6,3 +6,10 @@
   --color-secondary-background: #121212;
   --color-hover: #181818;
 }
+
+@layer base {
+  body {
+     background-color: var(--color-background);
+     color: #ffffff;
+  }
+}
