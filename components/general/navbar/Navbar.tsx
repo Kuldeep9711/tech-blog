@@ -1,7 +1,12 @@
+"use client"
+
 import Link from "next/link";
 import Logo from "../Logo";
 import { LuNotebookPen, LuSearch } from "react-icons/lu";
 import MobileNav from "../../MobileNav";
+import { useState } from "react";
+import { LuX, LuMenu } from "react-icons/lu";
+
 
  export const navLinks = [
     {url:"/", label:"Home"},
@@ -9,7 +14,10 @@ import MobileNav from "../../MobileNav";
     {url:"/about",label:"About"},
 ]
 
+
 export default function Navbar() {
+     const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <nav className="h-18 fixed top-0 left-0 z-50 backdrop-blur-md backdrop-saturate-50 w-full">
            <div className="flex items-center justify-between h-full w-[90%] mx-auto">
@@ -33,9 +41,14 @@ export default function Navbar() {
                        )
                    })}  
                    <li className="bg-primary text-gray-200 px-3 lg:px-5 py-2 rounded-full cursor-pointer">Login</li> 
+                   <li className="cursor-pointer md:hidden z-80" 
+                   onClick={() => setMenuOpen(!menuOpen)}
+                   >
+                       {menuOpen ? <LuX/> : <LuMenu/>}
+                   </li>
                  </ul> 
            </div>
-           <MobileNav />
+           <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         </nav>
     )
 }
