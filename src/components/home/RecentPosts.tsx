@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 export const posts = [
@@ -6,7 +7,7 @@ export const posts = [
         id: 1,
         title: "Is PHP really dead or is it a myth",
         excerpt:
-            "PHP is often labeled as “dead,” but the reality tells a different story. Despite",
+            "PHP is often labeled as “dead,” but the reality tells a different story. Despite the rise of newer technologies, PHP still powers a large portion",
             date: "Sep 12, 2025",
             slug: "is-PHP-really-dead-or-is-it-a-myth",
             image: "/p1.png",
@@ -15,7 +16,7 @@ export const posts = [
         id:2,
         title: "Dark Mode Done Right in Tailwind",
         excerpt:
-           "A practical guide to implementing dark mode using CSS variables and Tailwind-no",
+           "A practical guide to implementing dark mode using CSS variables and Tailwind-no hacks",
            date: "Sep 5, 2025",
            slug: "dark-mode-tailwind",
            image: '/p2.png',
@@ -24,7 +25,7 @@ export const posts = [
         id: 3,
         title: "Why Clean UI Matters for Blogs",
         excerpt: 
-            "How typography, spacing, and contrast affect readability and trust in long-form",
+            "How typography, spacing, and contrast affect readability and trust in long-format",
             date: "Aug 29, 2025",
             slug: "clean-ui",
             image: "/p3.png",
@@ -33,7 +34,7 @@ export const posts = [
 
 export default function RecentPosts() {
   return (
-    <div className='space-y-2'>
+    <div className='space-y-2 mb-10'>
        <h2 className='text-white text-xl sm:text-2xl md:text-3xl font-semibold'>
           Recent Posts
        </h2>
@@ -48,11 +49,25 @@ export default function RecentPosts() {
                      <Image 
                      src={post.image}
                      alt={post.title}
-                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                     width={600}
-                     height={600}
+                     className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                     fill
                      />
+                     <div className="absolute inset-0 bg-black/30"/>
                   </div>
+
+                  {/* content */}
+                  <div>
+                      <time className="text-xs text-gray-400">{post.date}</time>
+
+                      <h3 className="text-lg font-semibold text-white leading-snug group-hover:text-indigo-400 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
+                        {post.excerpt}</p>
+                        <Link href={`/articles/${post.slug}`} className="inline-block text-sm font-medium text-indigo-400 hover:underline">
+                         Read article 
+                        </Link>
+                     </div>
                  </div>
             )
           })}
