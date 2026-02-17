@@ -11,7 +11,7 @@ export default function WritePage() {
 
      const editor = useEditor( {
       extensions: [StarterKit],
-      content: "<p>Start writing your blog...<p>",
+      content: "<p>Start writing your blog...</p>",
       immediatelyRender: false,
      })
 
@@ -39,12 +39,49 @@ export default function WritePage() {
                 <label className='block text-gray-400 mb-2'>Cover Image</label>
                 <input type='file' accept='image/*' className='block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-primary file:text-white hover:file:bg-indigo-500'/>
           </div>
+          { /* toolbar */}
+         <div className="flex flex-wrap gap-2 mb-4 border p-3 rounded-lg bg-zinc-900">
+           <button 
+           type="button"
+           onClick={() => editor?.chain().focus().toggleBold().run()}
+           className="px-3 py-1 border rounded hover:bg-zinc-700"
+           >
+             Bold
+           </button>
 
-          {/* edit */}
-          <div className="rounded-2xl overflow-hidden border border-white/10">
-            <EditorContent editor={editor}/>
+           <button
+           type="button"
+             onClick={() => editor?.chain().focus().toggleItalic().run()}
+             className="px-3 py-1 border rounded hover:bg-zinc-700"
+           >
+            Italic
+           </button>
+
+           <button
+           type="button"
+           onClick={() => editor?.chain().focus().toggleHeading({ level: 2 }).run()}
+           className="px-3 py-1 border rounded hover:bg-zinc-700"
+           >
+              H2
+           </button>
+
+           <button 
+           type="button"
+           onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
+           className="px-3 py-1 border rounded hover:bg-zinc-700"
+           >
+               Code
+           </button>
+            </div>
+
+          {/* editor */}
+     {/*      <div className="rounded-2xl overflow-hidden border border-white/10"> */}
+     <div className="border rounded-lg p-4 min-h-[300px] bg-black text-white">
+            <EditorContent 
+            editor={editor}
+            className="outline-none" />
           </div>
-
+          
          </form>
     </section>
   )
