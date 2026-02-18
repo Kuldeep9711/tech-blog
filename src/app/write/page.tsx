@@ -3,10 +3,6 @@
 import { EditorContent, useEditor } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 
-
-
-
-
 export default function WritePage() {
 
      const editor = useEditor( {
@@ -14,8 +10,6 @@ export default function WritePage() {
       content: "<p>Start writing your blog...</p>",
       immediatelyRender: false,
      })
-
-     
 
   return (
     <section className='max-w-3xl mx-auto py-20 px-6'>
@@ -44,7 +38,7 @@ export default function WritePage() {
            <button 
            type="button"
            onClick={() => editor?.chain().focus().toggleBold().run()}
-           className="px-3 py-1 border rounded hover:bg-zinc-700"
+           className={`px-3 py-1 border rounded ${editor?.isActive("bold") ? "bg-indigo-600" : "hover:bg-zinc-700"}`}
            >
              Bold
            </button>
@@ -76,7 +70,7 @@ export default function WritePage() {
 
           {/* editor */}
      {/*      <div className="rounded-2xl overflow-hidden border border-white/10"> */}
-     <div className="border rounded-lg p-4 min-h-[300px] bg-black text-white">
+     <div className="border rounded-xl p-6 min-h-[350px] bg-zinc-950 text-gray-200 focus-within:border-indigo-500 transition">
             <EditorContent 
             editor={editor}
             className="outline-none" />
