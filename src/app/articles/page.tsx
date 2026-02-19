@@ -44,7 +44,13 @@ export default function ArticlesPage() {
             )
           })}
        </div>
-            </div>
+
+         <div className="flex justify-center mt-10">
+            <button className="px-8 py-3 rounded-full bg-secondary-background text-gray-300 text-sm font-medium border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300 cursor-pointer">
+               Load more articles
+            </button>
+         </div>
+     </div>
         </ContainerLayout>
     )
 }
