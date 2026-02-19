@@ -70,12 +70,16 @@ export default function WritePage() {
 
           {/* editor */}
      {/*      <div className="rounded-2xl overflow-hidden border border-white/10"> */}
-     <div className="border rounded-xl p-6 min-h-[350px] bg-zinc-950 text-gray-200 focus-within:border-indigo-500 transition">
+     <div className="border rounded-xl p-6 min-h-[350px] bg-zinc-950 text-gray-200 focus-within:border-indigo-500 transition mb-10">
             <EditorContent 
             editor={editor}
             className="outline-none" />
           </div>
-          
+         <div className="flex justify-end">
+           <button className="px-6 py-3 rounded-full bg-primary cursor-pointer text-white font-semibold transition-colors">
+            Publish
+          </button>
+         </div>
          </form>
     </section>
   )
