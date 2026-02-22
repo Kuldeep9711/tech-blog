@@ -7,8 +7,16 @@ interface ModelProps {
 
 export default function Modal({isOpen,onClose,children}: ModelProps) {
   return (
-    <div aria-hidden={!isOpen}>
-      
+    <div aria-hidden={!isOpen} className={`fixed inset-0 flex items-center justify-center px-4 transition-opacity duration-700 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+      {/* backdrop */}
+      <div onClick={onClose} className={`absolute inset-0 bg-black/90 ${isOpen ? "opacity-100" : "opacity-0"}`}/>
+
+      {/* modal */}
+      <div className={`relative z-10 w-full max-w-md rounded-2xl bg-secondary-background border border-white/10 px-6 py-12 shadow-xl transform transition-all duration-700 ${isOpen ? "translate-y-0" : "translate-y-full"}
+        ${isOpen ? "opacity-100" : "opacity-0"}
+        `}>
+        
+      </div>
     </div>
   )
 }
