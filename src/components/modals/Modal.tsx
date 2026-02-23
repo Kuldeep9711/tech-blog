@@ -17,7 +17,7 @@ export default function Modal({isOpen,onClose,children}: ModelProps) {
         ${isOpen ? "opacity-100" : "opacity-0"}
         `}>
           <button className="absolute right-4 top-4 text-gray-400 hover:text-white transition"aria-label="Close Modal"onClick={onClose}>
-            <LuX />
+            <LuX size={25}/>
 
           </button>
 
