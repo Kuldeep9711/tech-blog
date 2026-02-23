@@ -13,7 +13,7 @@ interface ModalState {
 
 export const useModalStore = create<ModalState>((set) => ({
     isSearchOpen: false,
-    isSignInOpen: false,
+    isSignInOpen: true,
     openSignIn:() => set({isSignInOpen: true, isSearchOpen: false }),
     closeSignIn:() => set({ isSignInOpen: false}),
     openSearch:() => set({ isSearchOpen: true, isSignInOpen: false}),
